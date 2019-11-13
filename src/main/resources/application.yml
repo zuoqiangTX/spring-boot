@@ -1,2 +1,15 @@
+# k:(空格)v：表示一对键值对（空格必须有),属性和值也是大小写敏感
 server:
   port: 8081
+person:
+  lastName: hello
+  age: 18
+  boss: false
+  birth: 2017/12/12
+  maps: {k1: v1,k2: 12}
+  lists:
+    - lisi
+    - zhaoliu
+  dog:
+    name: 小狗
+    age: 12
