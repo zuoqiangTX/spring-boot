@@ -5,7 +5,9 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +25,7 @@ import java.util.Map;
 @Data
 @EqualsAndHashCode
 @ToString
+@Validated
 //@ConfigurationProperties(prefix = "person")
 public class Person {
     /**
@@ -31,6 +34,7 @@ public class Person {
      * <bean/>
      */
 
+    @Email //lastName必须是邮箱格式,@value不支持JSR 303校验
     @Value("${person.last-name}")
     private String lastName;
 
