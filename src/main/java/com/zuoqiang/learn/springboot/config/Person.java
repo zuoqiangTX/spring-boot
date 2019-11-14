@@ -3,7 +3,8 @@ package com.zuoqiang.learn.springboot.config;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -18,13 +19,16 @@ import java.util.Map;
  * @ConfigurationProperties：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定； prefix = "person"：配置文件中哪个下面的所有属性进行一一映射
  * <p>
  * 只有这个组件是容器中的组件，才能容器提供的@ConfigurationProperties功能；
+ * <p>
+ * ，默认是全局配置文件（application.properties）
  */
 @Component
 @Data
 @EqualsAndHashCode
 @ToString
+@PropertySource(value = {"classpath:person.properties"})  //加载指定的配置文件；
 //@Validated
-//@ConfigurationProperties(prefix = "person")
+@ConfigurationProperties(prefix = "person")
 public class Person {
     /**
      * <bean class="Person">
@@ -33,13 +37,13 @@ public class Person {
      */
 
 //    @Email //lastName必须是邮箱格式,@value不支持JSR 303校验
-    @Value("${person.last-name}")
+//    @Value("${person.last-name}")
     private String lastName;
 
-    @Value("#{11*2}")
+    //    @Value("#{11*2}")
     private Integer age;
 
-    @Value("false")
+    //    @Value("false")
     private Boolean boss;
 
     private Date birth;
