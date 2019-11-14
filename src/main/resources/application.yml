@@ -1,6 +1,4 @@
 # k:(空格)v：表示一对键值对（空格必须有),属性和值也是大小写敏感
-server:
-  port: 8081
 #person:
 ##  lastName: hello
 #  last-name: hello
@@ -14,3 +12,20 @@ server:
 #  dog:
 #    name: 小狗
 #    age: 12
+
+server:
+  port: 8081
+spring:
+  profiles:
+    active: prod  #激活哪个环境
+---
+server:
+  port: 8083
+spring:
+  profiles: dev   #指定属于dev环境
+---
+server:
+  port: 8084
+spring:
+  profiles: prod  #指定属于prod环境
+---
