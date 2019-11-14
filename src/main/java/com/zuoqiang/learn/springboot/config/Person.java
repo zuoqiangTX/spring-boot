@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -26,7 +25,7 @@ import java.util.Map;
 @Data
 @EqualsAndHashCode
 @ToString
-@PropertySource(value = {"classpath:person.properties"})  //加载指定的配置文件；
+//@PropertySource(value = {"classpath:person.properties"})  //加载指定的配置文件；
 //@Validated
 @ConfigurationProperties(prefix = "person")
 public class Person {
