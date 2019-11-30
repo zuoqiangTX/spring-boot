@@ -48,6 +48,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 我自己写一个启动autoConfiguration来自定义starter-->
+        <dependency>
+            <groupId>com.zuoqiang</groupId>
+            <artifactId>demo-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
