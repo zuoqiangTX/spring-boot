@@ -1,7 +1,5 @@
-package com.zuoqiang.learn.springboot.event.impl;
+package com.zuoqiang.learn.springboot.event.jdk;
 
-import com.zuoqiang.learn.springboot.event.TaskFinishEvent;
-import com.zuoqiang.learn.springboot.event.TaskFinishEventListner;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

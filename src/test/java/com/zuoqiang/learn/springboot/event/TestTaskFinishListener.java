@@ -1,7 +1,6 @@
 package com.zuoqiang.learn.springboot.event;
 
-import com.zuoqiang.learn.springboot.event.impl.MailTaskFinishListener;
-import com.zuoqiang.learn.springboot.event.impl.SmsTaskFinishListener;
+import com.zuoqiang.learn.springboot.event.jdk.*;
 
 /**
  * spring 自带事件发布机制 测试类

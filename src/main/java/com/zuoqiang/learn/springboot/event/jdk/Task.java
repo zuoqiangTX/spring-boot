@@ -1,4 +1,4 @@
-package com.zuoqiang.learn.springboot.event;
+package com.zuoqiang.learn.springboot.event.jdk;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
