@@ -35,6 +35,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -49,6 +50,11 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.1-jre</version>
+        </dependency>
         <!-- 我自己写一个启动autoConfiguration来自定义starter-->
         <dependency>
             <groupId>com.zuoqiang</groupId>
