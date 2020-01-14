@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 
 /**
@@ -29,6 +30,14 @@ class ApplicationTests {
     public void testSpringBean() {
         System.out.println(ioc.containsBean("helloService"));
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Date().getTime());
+//        List<Person> lists = null;
+//        for (Person list : lists) {
+//            System.out.println(list.getAge());
+//        }
     }
 
 
