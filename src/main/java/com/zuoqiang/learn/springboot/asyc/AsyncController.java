@@ -1,13 +1,14 @@
 package com.zuoqiang.learn.springboot.asyc;
 
+import com.zuoqiang.learn.springboot.model.R;
 import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
 
-import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zuoqiang
@@ -37,5 +38,21 @@ public class AsyncController {
         for (Map.Entry<Integer, DeferredResult> entry : deferredResultMap.entrySet()) {
             entry.getValue().setResult("kl");
         }
+    }
+
+
+    @GetMapping("/test")
+    public DeferredResult<R> test() {
+        //设置10秒超时
+        DeferredResult deferredResult = new DeferredResult(1000L, R.fail());
+        //模拟耗时操作
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        deferredResult.setResult(R.ok());
+        return deferredResult;
     }
 }

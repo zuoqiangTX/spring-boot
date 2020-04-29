@@ -1,4 +1,4 @@
-package com.zuoqiang.learn.springboot.asyc;
+package com.zuoqiang.learn.springboot.asyc.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
