@@ -14,7 +14,8 @@ import org.springframework.web.context.request.async.DeferredResult;
 /**
  * @author zuoqiang
  * @version 1.0
- * @description todo
+ * @description /get是调用A系统的接口返回数据；
+ * /result模拟B系统向A推送数据进行setResult。
  * @date 2020/4/30 11:29 上午
  */
 @RestController
