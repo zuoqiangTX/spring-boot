@@ -1,11 +1,13 @@
-package com.zuoqiang.learn.springboot;
+package com.zuoqiang.learn.springboot.web;
 
+import com.zuoqiang.learn.springboot.Application;
 import com.zuoqiang.learn.springboot.asyc.service.AsyncFeginService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,6 +21,7 @@ import java.util.concurrent.Executors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
+@WebAppConfiguration
 public class LongPollingdemoApplicationTests {
     @Autowired
     AsyncFeginService asyncFeginService;
