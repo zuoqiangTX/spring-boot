@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zuoqiang.learn.springboot.mapper.ConfigMapper">
+
+    <resultMap id="BaseResultMap" type="com.zuoqiang.learn.springboot.entity.Config">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="appId" property="appId"/>
+        <result column="app_type" property="appType"/>
+        <result column="comment" property="comment"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,
+        name,
+        appId,
+        app_type,
+        comment,
+        is_deleted,
+        create_time,
+        modify_time
+    </sql>
+
+    <sql id="_sql_where">
+        <if test="id != null">
+            and id=#{id}
+        </if>
+        <if test="name != null and name != '' ">
+            and name=#{name}
+        </if>
+        <if test="appId != null and appId != '' ">
+            and appId=#{appId}
+        </if>
+        <if test="appType != null and appType != '' ">
+            and app_type=#{appType}
+        </if>
+        <if test="comment != null and comment != '' ">
+            and comment=#{comment}
+        </if>
+        <if test="isDeleted != null">
+            and is_deleted=#{isDeleted}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime}
+        </if>
+        <if test="modifyTime != null">
+            and modify_time=#{modifyTime}
+        </if>
+        <if test="maxId != null">
+            and id <![CDATA[ > ]]> #{maxId}
+        </if>
+    </sql>
+
+    <sql id="_select_limit">
+        <if test="offset != null and limit != null">
+            limit #{offset} , #{limit}
+        </if>
+    </sql>
+
+    <sql id="_select_orderby">
+        <if test="orderBy != null">
+            ORDER BY ${orderBy.columnName} ${orderBy.type}
+        </if>
+    </sql>
+
+    <insert id="insert" parameterType="com.zuoqiang.learn.springboot.entity.Config" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO config (<include refid="Base_Column_List"/>)
+        VALUES( #{id} , #{name} , #{appId} , #{appType} , #{comment} , #{isDeleted} , #{createTime} , #{modifyTime} )
+    </insert>
+
+    <select id="findByUnique" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        config
+        where
+        id = #{id}
+    </select>
+
+    <update id="updateByUnique" parameterType="com.zuoqiang.learn.springboot.entity.Config">
+        update config
+        <set>
+            <if test="id != null">
+                id=#{id},
+            </if>
+            <if test="name != null and name != '' ">
+                name=#{name},
+            </if>
+            <if test="appId != null and appId != '' ">
+                appId=#{appId},
+            </if>
+            <if test="appType != null and appType != '' ">
+                app_type=#{appType},
+            </if>
+            <if test="comment != null and comment != '' ">
+                comment=#{comment},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted=#{isDeleted},
+            </if>
+            <if test="createTime != null">
+                create_time=#{createTime},
+            </if>
+            <if test="modifyTime != null">
+                modify_time=#{modifyTime}
+            </if>
+        </set>
+        where
+        id = #{id}
+
+    </update>
+
+    <select id="query" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        config
+        <where>
+            <trim prefix="" prefixOverrides="and" suffix="">
+                <include refid="_sql_where"/>
+            </trim>
+        </where>
+        <include refid="_select_orderby"/>
+        <include refid="_select_limit"/>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+        select
+        count(1)
+        from
+        config
+        <where>
+            <trim prefix="" prefixOverrides="and" suffix="">
+                <include refid="_sql_where"/>
+            </trim>
+        </where>
+    </select>
+
+
+    <select id="selectByIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM config
+        WHERE `id` in
+        (
+        <foreach collection="ids" item="item" separator=",">
+            #{item}
+        </foreach>
+        )
+    </select>
+
+</mapper>

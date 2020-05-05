@@ -3746,7 +3746,7 @@ public interface DepartmentMapper {
     @Insert("insert into department(departmentName) values(#{departmentName})")
     public int insertDept(Department department);
 
-    @Update("update department set departmentName=#{departmentName} where id=#{id}")
+    @Update(job)
     public int updateDept(Department department);
 }
 

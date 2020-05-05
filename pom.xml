@@ -16,6 +16,9 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <druid.version>1.1.16</druid.version>
+        <mysql.version>8.0.16</mysql.version>
     </properties>
 
     <dependencies>
@@ -66,6 +69,26 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- MyBatis增强插件 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
         <!-- 我自己写一个启动autoConfiguration来自定义starter-->
         <!--        <dependency>-->
         <!--            <groupId>com.zuoqiang</groupId>-->

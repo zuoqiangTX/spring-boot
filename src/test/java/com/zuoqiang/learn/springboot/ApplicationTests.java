@@ -1,6 +1,10 @@
 package com.zuoqiang.learn.springboot;
 
+import com.google.common.collect.Lists;
 import com.zuoqiang.learn.springboot.config.Person;
+import com.zuoqiang.learn.springboot.entity.Config;
+import com.zuoqiang.learn.springboot.query.ConfigQuery;
+import com.zuoqiang.learn.springboot.service.ConfigService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -20,6 +25,9 @@ class ApplicationTests {
 
     @Autowired
     private ApplicationContext ioc;
+
+    @Autowired
+    private ConfigService configService;
 
     @Test
     void contextLoads() {
@@ -41,4 +49,23 @@ class ApplicationTests {
     }
 
 
+    @Test
+    public void test() throws InterruptedException {
+//        for (int i = 0; i < 7; i++) {
+//            Config config = new Config();
+//            config.setId(i);
+//            config.setAppId("APP" + i);
+//            config.setName("test" + i);
+//            config.setAppType("0");
+//            config.setComment("");
+//            config.setIsDeleted(true);
+//            config.setCreateTime(new Date());
+//            configService.insert(config);
+//            TimeUnit.SECONDS.sleep(10);
+//        }
+        ConfigQuery configQuery = new ConfigQuery();
+        configQuery.setIds(Lists.newArrayList(1, 2, 3, 4));
+        List<Config> configs = configService.selectByIds(configQuery);
+        configs.forEach(System.out::println);
+    }
 }
