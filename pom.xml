@@ -89,6 +89,13 @@
             <version>${druid.version}</version>
         </dependency>
 
+        <!-- json -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
+
         <!-- 我自己写一个启动autoConfiguration来自定义starter-->
         <!--        <dependency>-->
         <!--            <groupId>com.zuoqiang</groupId>-->
