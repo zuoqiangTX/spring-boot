@@ -23,9 +23,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
+ * 增量更新job
+ * 从apollo源码得到的灵感
+ *
  * @author zuoqiang
  * @version 1.0
  * @date 2020-05-05 21:29
+ * @see com.ctrip.framework.apollo.configservice.service
+ * AppNamespaceServiceWithCache
  */
 @Component
 @Data
