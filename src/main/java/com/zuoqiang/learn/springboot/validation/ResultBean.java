@@ -32,4 +32,7 @@ public class ResultBean implements Serializable {
         this.code = code;
         this.content = content;
     }
+
+    public ResultBean() {
+    }
 }
