@@ -32,6 +32,9 @@ spring:
 
 
 spring:
+  messages:
+    encoding: utf-8
+    basename: i18n/messages
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

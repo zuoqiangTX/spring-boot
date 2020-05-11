@@ -74,7 +74,7 @@ public class WebTestController {
             response.setCharacterEncoding("utf-8");
             Map<String, String> map = new HashMap<String, String>();
             map.put("status", "failure");
-            map.put("message", "下载文件失败" + e.getMessage());
+            map.put("i18n/message", "下载文件失败" + e.getMessage());
             response.getWriter().println(JSON.toJSONString(map));
         }
     }
