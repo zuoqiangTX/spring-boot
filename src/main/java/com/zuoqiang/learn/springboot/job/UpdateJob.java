@@ -11,7 +11,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -61,6 +60,7 @@ public class UpdateJob implements InitializingBean {
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             this.updateAndDeleteCache();
         }, rebuildInterval, rebuildInterval, rebuildIntervalTimeUnit);
+        //在上面的基础上，继续拉取全量数据，此处的数据完全为新数据
         scheduledExecutorService.scheduleWithFixedDelay(this::loadNewAppNamespaces, scanInterval,
                 scanInterval, scanIntervalTimeUnit);
     }
